@@ -4,6 +4,7 @@ title: HackTheBox - Bastard write-up
 ---
 As usual, I start with quick Nmap scan:
 ```
+nmap -sC -sV 10.10.10.79
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-22 12:41 EDT
 Nmap scan report for 10.10.10.9
 Host is up (0.013s latency).
@@ -45,7 +46,7 @@ Visiting <a href="http://10.10.10.9/CHANGELOG.txt">http://10.10.10.9/CHANGELOG.t
 
 Next, I decide to enumerate web directories while looking for potentially useful Drupal exploits: 
 ```
-dirsearch.py -u http://10.10.10.9 -t 32 -r -e -f -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --plain-text-report="/home/k-lazarev/HackTheBox/Bastard/dirsearch-80.txt
+dirsearch.py -u http://10.10.10.9 -t 32 -r -e -f -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --plain-text-report="/home/k-lazarev/HackTheBox/Bastard/dirsearch-80.txt"
 ```
 Most relevant ExploitDB exploit:
 ```
@@ -76,7 +77,7 @@ and attempt to run it, which results into the error message:
 PHP Fatal error:  Uncaught Error: Call to undefined function curl_init() in /home/k-lazarev/HackTheBox/Bastard/exploits/41564.php:254
 ```
 To fix the situation I run `sudo apt install php-curl` and execute the exploit once again.
-This time the result is remotre code execution on the box:
+This time the result is remote code execution on the box:
 {:refdef: style="text-align: center;"}
 ![](/images/43010aa7437743e886b229bb6e57abe5.png)
 {: refdef}
@@ -147,7 +148,7 @@ This immidiately points to a kernel exploit. I study `winPEAS.bat` output furthe
 ```
 MS15-051 patch is NOT installed! (Vulns: 2K3/SP2,2K8/SP2,Vista/SP2,7/SP1-win32k.sys)
 ```
-and and eventually grab an exploit from here: <a href="https://github.com/SecWiki/windows-kernel-exploits/blob/master/MS15-051/MS15-051-KB3045171.zip">https://github.com/SecWiki/windows-kernel-exploits/blob/master/MS15-051/MS15-051-KB3045171.zip</a>
+and eventually grab an exploit from here: <a href="https://github.com/SecWiki/windows-kernel-exploits/blob/master/MS15-051/MS15-051-KB3045171.zip">https://github.com/SecWiki/windows-kernel-exploits/blob/master/MS15-051/MS15-051-KB3045171.zip</a>
 
 After running the exploit on the box I get access as `NT AUTHORITY\SYSTEM`:
 {:refdef: style="text-align: center;"}
