@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - Bastard write-up
 ---
-As usual, I start with quick Nmap scan:
+As usual, I start with a quick Nmap scan:
 ```
 nmap -sC -sV 10.10.10.79
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-22 12:41 EDT
