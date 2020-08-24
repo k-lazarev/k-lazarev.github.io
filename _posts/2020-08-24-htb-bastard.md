@@ -27,6 +27,7 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 67.96 seconds
 ```
+<!--more-->
 I see Drupal instance at port 80,
 {:refdef: style="text-align: center;"}
 ![](/images/d913bb42895841038e2673037ec43956.png)
