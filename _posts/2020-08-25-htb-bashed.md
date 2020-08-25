@@ -117,7 +117,7 @@ f = open("test.txt", "w")
 f.write("testing 123!")
 f.close
 ```
-Looks like `test.txt` was modified *before* I spawned the vulnerable box, which is odd. On closer inspection I notice that the file is getting modified every minute. Likely, there's a scheduled job which runs `test.py` as `root`. In the next step I replace `test.py` contents with my reverse shell:
+Looks like `test.txt` was modified recently, but *before* I spawned the vulnerable box, which is odd. On closer inspection I notice that the time zone on Bashed is different from mine, and `test.txt` is getting modified every minute. Likely, there's a scheduled job which runs `test.py` as `root`. In the next step I replace `test.py` contents with my reverse shell:
 
 ```
 import socket,subprocess,os
