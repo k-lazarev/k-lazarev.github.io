@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Valentine write-up
+categories: CTF
 ---
 Nmap TCP scan result:
 

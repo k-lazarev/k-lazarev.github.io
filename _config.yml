@@ -68,7 +68,7 @@ kramdown:
     # Use existing pygments syntax highlighting css
     css_class: 'highlight'
 # Pagination 
-paginate: 10
+paginate: 16
 paginate_path: /page:num/
 # Set the Sass partials directory, as we're using @imports
 sass:
@@ -81,6 +81,7 @@ plugins:
   # - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
 # Exclude these files from your production _site
+include: ['_pages']
 exclude:
   - Gemfile
   - Gemfile.lock

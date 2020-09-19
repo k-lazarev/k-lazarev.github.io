@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Bastard write-up
+categories: CTF
 ---
 As usual, I start with a quick Nmap scan:
 ```
