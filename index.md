@@ -1,4 +1,5 @@
 <br>
+
 ## 2025
 - [CVE-2025-32433 - State Machine Err-ly RCE in Erlang/OTP SSH Server](https://www.labs.greynoise.io/grimoire/2025-04-22-erlang-ssh/)
 
