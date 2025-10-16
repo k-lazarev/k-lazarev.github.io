@@ -7,6 +7,9 @@
 - [Command and Control (C2) Servers 101](https://www.labs.greynoise.io/grimoire/2024-07-18-c2-101/)
 - [What's Going on with CVE-2024-4577 (Critical RCE in PHP)?](https://www.labs.greynoise.io/grimoire/2024-06-13-sup-php-rce-cve-2024-4577/)
 
+## 2023
+- [Labs GraphQL API](https://www.labs.greynoise.io/blueprints/2023-04-19-labs-graphql-api/#possible-c2s)
+
 ## 2022
 - [Observing Industrial Control System (ICS) protocols with GreyNoise](https://www.greynoise.io/blog/industrial-control-systems-ics-tags)
 
